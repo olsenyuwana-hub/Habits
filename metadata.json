@@ -1,0 +1,6 @@
+{
+  "name": "Kingdom of Mastery",
+  "description": "An interactive tactical HUD for gamified habit tracking, active missions, gear store, and character stats.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #0b1323;
+  color: #dbe2f8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism panel styles */
+.glass-panel {
+  background: rgba(24, 32, 47, 0.61);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(132, 148, 149, 0.18);
+}
+
+.holographic-panel {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(254, 0, 254, 0.05) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 219, 233, 0.12), inset 0 0 10px rgba(0, 219, 233, 0.06);
+}
+
+/* Neon boundary indicator rules matching the branding guide */
+.neon-border-primary {
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
+  border-left: 4px solid #00f0ff;
+}
+
+.neon-border-secondary {
+  box-shadow: 0 0 12px rgba(254, 0, 254, 0.15);
+  border-left: 4px solid #fe00fe;
+}
+
+.neon-border-tertiary {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
+  border-left: 4px solid #ffd700;
+}
+
+.neon-glow-primary {
+  box-shadow: 0 0 15px rgba(0, 219, 233, 0.35);
+}
+
+.neon-glow-secondary {
+  box-shadow: 0 0 15px rgba(254, 0, 254, 0.35);
+}
+
+/* scan line movement animation for active scan overlays */
+@keyframes scan {
+  0% { top: -10%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.scan-line {
+  height: 4px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+  position: absolute;
+  width: 100%;
+  animation: scan 2s linear infinite;
+  z-index: 10;
+}
+
+/* ambient backing scanline raster overlay */
+.hud-scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 240, 255, 0.03) 50%);
+  background-size: 100% 4px;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes glitch-swap {
+  0% { filter: hue-rotate(0deg) brightness(1); transform: scale(1); opacity: 1; }
+  20% { filter: hue-rotate(90deg) brightness(1.7); transform: scale(1.04) skewX(4deg); opacity: 0.75; }
+  40% { filter: hue-rotate(180deg) brightness(0.6); transform: scale(0.96) skewX(-4deg); opacity: 0.8; }
+  60% { filter: hue-rotate(270deg) brightness(1.4); transform: scale(1.02); opacity: 0.65; }
+  100% { filter: hue-rotate(360deg) brightness(1); transform: scale(1); opacity: 1; }
+}
+
+.pfp-glitch {
+  animation: glitch-swap 0.4s ease-out;
+}
+
+/* Space Grotesk Font and JetBrains Mono Helper applications */
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
